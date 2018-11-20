@@ -2,8 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/map.css">
   </head>
   <body>
-    <h1>Neighborhood Map</h1>
+    <div id="toolbar">
+      <h1>Neighborhood Map</h1>
+      <h2>Places To Visit:</h2>
+      <form data-bind="submit: narrowList">
+        <input type="text">
+        <select data-bind="value: filter, foreach: filterList" name="Filter">
+          <option data-bind="attr: {value: $data}, text: $data"></option>
+        </select>
+        <input type="submit" value="Search">
+      </form>
+      <div data-bind="foreach: placesList">
+        <div data-bind="click: $parent.displaydetails">
+          <h3 data-bind="text: name"></h3>
+          <p>Click for related info from Wikipedia!</p>
+          <p data-bind="text: wikisearch"></p>
+          <p data-bind="text: location"></p>
+        </div>
+      </div>
+    </div>
+    <div id="map">
+    </div>
+    <script type="text/javascript" src="js/knockout-3.4.2.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/neighborhood_map.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyD88jzqER83LhV4c7g0mUFZ0uUYYDOWHDA&callback=initMap">
+    </script>
   </body>
 </html>
