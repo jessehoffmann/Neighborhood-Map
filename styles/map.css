@@ -4,14 +4,65 @@ html, body {
   padding: 0;
 }
 
+header {
+  border: solid;
+  padding: 20px:
+}
+
+footer {
+  padding: 20px;
+  border-left: solid;
+  border-right: solid;
+  border-bottom: solid;
+}
+
+h1 {
+  text-align: center;
+}
+
+.body {
+  display: table;
+  table-layout: inherit;
+  width: 100%;
+}
+
 #toolbar {
+  box-sizing: border-box;
+  display: table-cell;
+  background-color: #e8e8e8;
   float: left;
-  height: 100%;
+  padding: 10px;
   width: 30%;
+  height: 100vh;
+  overflow-y: scroll;
+  border-left: solid;
+  border-right: solid;
+  border-bottom: solid;
 }
 
 #map {
+  box-sizing: border-box;
+  margin: 0px;
+  display: table-cell;
   float: left;
-  height: 100%;
-  width: 68%;
+  width: 70%;
+  height: 100vh;
+  position: relative;
+  border-right: solid;
+  border-bottom: solid;
+}
+
+#footer {
+  text-align: center;
+}
+
+@media screen and (max-width: 775px) {
+  #toolbar {
+    height: 250px;
+    width: 100%;
+  }
+  #map {
+    width: 100%;
+    height: 300px;
+  }
 }
