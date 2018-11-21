@@ -8,7 +8,7 @@ I recommend Google Chrome:
 https://www.google.com/chrome/b/
 
 ## Deployment
-To run the program open the neighborhood_map.html in your web browser.
+To run the program open the "neighborhood_map.html" file in your web browser.
 
 ## Credit
 I learned most of what I used in this application from Udacity and some lines
