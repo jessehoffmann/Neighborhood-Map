@@ -21,9 +21,12 @@
         <div data-bind="foreach: placesList">
           <div data-bind="click: $parent.displaydetails">
             <h3 data-bind="text: name"></h3>
-            <p>Click for related info from Wikipedia!</p>
-            <p data-bind="text: wikisearch"></p>
-            <p data-bind="text: location"></p>
+            <div id="detailsbox">
+              <h4>Address:</h4>
+              <p data-bind="text: location"></p>
+              <h4>Click box for related info from Wikipedia:</h4>
+              <p data-bind="text: wikisearch"></p>
+            </div>
           </div>
         </div>
       </div>

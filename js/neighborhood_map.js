@@ -1,6 +1,7 @@
 //create globle variables for Google map
 var map;
 var markers = [];
+var infowindow;
 var bounds;
 //google and wikipedia keys for api calls
 var client_ID = "dSAwHEJQeFr9NowtHXkfvg";
@@ -131,11 +132,14 @@ function addMarker(place) {
       });
       //push marker to global variable for tracking map data
       markers.push(marker);
-      var content = place.name + "<p>" + place.location + "<p>";
+      var content = "<h4>" + place.name + "</h4>" + "<p>" + place.location + "<p>";
       //open info windor on map when marker is clicked
       marker.addListener('click', function() {
+        if (infowindow) {
+          infowindow.close();
+        };
         toggleBounce();
-        var infowindow = new google.maps.InfoWindow({
+        infowindow = new google.maps.InfoWindow({
           content: content
         });
         infowindow.open(map, marker);
