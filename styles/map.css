@@ -30,6 +30,15 @@ h4 {
   margin: 4px;
 }
 
+hr {
+  background-color: black;
+  height: 1px;
+  color: black;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: relative;
+}
+
 p {
   margin-left: 4px;
   margin-top: 4px;
