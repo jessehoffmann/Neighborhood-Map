@@ -1,50 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/map.css">
+    <title>Thousand Oaks Neighborhood Map</title>
   </head>
   <body>
     <header>
       <h1>Thousand Oaks Neighborhood Map</h1>
     </header>
     <div class="body">
-      <div id="toolbar">
+      <div class="toolbar">
         <h2>Places To Visit:</h2>
         <form data-bind="submit: narrowList">
-          <input type="text">
+          <input data-bind="textInput: search"/>
           <select data-bind="value: filter, foreach: filterList" name="Filter">
-            <option data-bind="attr: {value: $data}, text: $data"></option>
+            <option data-bind="attr: {value: $data}, text: $data">Filler</option>
           </select>
           <input type="submit" value="Search">
           <hr>
         </form>
         <div data-bind="foreach: placesList">
-          <div data-bind="click: $parent.displaydetails">
-            <h3 data-bind="text: name"></h3>
-            <div id="detailsbox">
+          <div data-bind="visible: showPlace, attr: {id: name}, click: $parent.displaydetails">
+            <h3 data-bind="text: name">Filler</h3>
+            <div class="detailsbox">
               <h4>Address:</h4>
               <p data-bind="text: location"></p>
               <h4>Click box for related info from Wikipedia:</h4>
-              <p data-bind="text: wikisearch"></p>
+              <p data-bind="visible: showWiki, text: wikisearch"></p>
             </div>
           </div>
         </div>
       </div>
-      <div id="map">
+      <div id="map" class="map">
       </div>
     </div>
     <footer>
-      <p id=footer>
-        Thank you Udacity for all your help!</br>
+      <p class=footer>
+        Thank you Udacity for all your help!<br>
         This program includes data from Wikipedia and Google Maps APIs
       </p>
     </footer>
-    <script type="text/javascript" src="js/knockout-3.4.2.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/neighborhood_map.js"></script>
+    <script src="js/knockout-3.4.2.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/neighborhood_map.js"></script>
     <script async defer
-      src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyD88jzqER83LhV4c7g0mUFZ0uUYYDOWHDA&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyD88jzqER83LhV4c7g0mUFZ0uUYYDOWHDA&callback=initMap"
+      onerror="myerrorhandler()">
     </script>
   </body>
 </html>

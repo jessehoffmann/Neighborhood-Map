@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -36,7 +37,6 @@ hr {
   color: black;
   margin-top: 25px;
   margin-bottom: 25px;
-  width: relative;
 }
 
 p {
@@ -51,7 +51,7 @@ p {
   width: 100%;
 }
 
-#toolbar {
+.toolbar {
   box-sizing: border-box;
   display: table-cell;
   background-color: #e8e8e8;
@@ -65,12 +65,12 @@ p {
   border-bottom: solid;
 }
 
-#detailsbox {
+.detailsbox {
   border: solid;
   padding: 3px;
 }
 
-#map {
+.map {
   box-sizing: border-box;
   margin: 0px;
   display: table-cell;
@@ -82,7 +82,7 @@ p {
   border-bottom: solid;
 }
 
-#footer {
+.footer {
   margin: 0px;
   text-align: center;
 }
@@ -99,11 +99,11 @@ p {
 }
 
 @media screen and (max-width: 775px) {
-  #toolbar {
+  .toolbar {
     height: 250px;
     width: 100%;
   }
-  #map {
+  .map {
     width: 100%;
     height: 300px;
   }
