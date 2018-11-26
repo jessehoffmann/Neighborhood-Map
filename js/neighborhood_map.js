@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 //globle variables for Google map
 var map;
@@ -57,13 +58,13 @@ var ViewModel = function() {
           place.showPlace(true);
         }
       }
-    };
+    }
   };
   //displays details of a particular place when clicked
   this.displaydetails = function(place) {
     self.placesList().forEach( function(place) {
       place.showWiki(false);
-    })
+    });
     var list_index = self.placesList.indexOf(place);
     //wikipedia api call for related info about place
     $.ajax({
@@ -141,10 +142,10 @@ function addMarker(place) {
       map.fitBounds(bounds);
     //alert user a particular location does not exist
     } else {
-      window.alert(place.name + "does not exist.")
+      window.alert(place.name + "does not exist.");
     }
   });
-};
+}
 
 //callback function to initialize google map api
 function initMap() {
@@ -158,10 +159,10 @@ function initMap() {
   bounds = new google.maps.LatLngBounds();
   //use model data to populate markers and windows for map
   model.forEach( function(place) {
-    addMarker(place)
+    addMarker(place);
   });
-};
+}
 
 function myerrorhandler() {
-  window.alert("Error Loading Google Maps API")
-};
+  window.alert("Error Loading Google Maps API");
+}
