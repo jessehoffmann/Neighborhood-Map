@@ -5,10 +5,6 @@ var map;
 var markers = [];
 var infowindow;
 var bounds;
-//google and wikipedia keys for api calls
-var client_ID = "dSAwHEJQeFr9NowtHXkfvg";
-var api_Key = "Kz-RWov2WC0g-DC7T917mteitJThPLPXfCoFo9WGGMm-KFgJwwDWNpI0NuLN396t22oSw9x5C55-Wd0VQ4SOqeJTQ8spUXvrYarNNM-WIP3kB2_dKi1ZexcN4-rjW3Yx";
-
 //create dynamic variable for each place using Knockout
 var Place = function(data) {
   this.showPlace = ko.observable(true);
@@ -55,6 +51,7 @@ var ViewModel = function() {
             place.keyword().toUpperCase().includes(self.search().toUpperCase()) == true) {
           //add filtered places to toolbar
           markers[i][0].setVisible(true);
+          infowindow.close();
           place.showPlace(true);
         }
       }
@@ -75,6 +72,10 @@ var ViewModel = function() {
         search: place.keyword(),
         format: 'json',
         origin: '*'
+      },
+      error: function(jqXHR, status, errorThrown) {
+        window.alert("Error Loading Wikipedia API.\nThe following error occured:\n"
+                     + status + errorThrown);
       },
       success: function(result) {
         self.placesList()[list_index].wikisearch(result[2][0]);
@@ -102,7 +103,7 @@ function toggleBounce(marker) {
   if (marker.getAnimation() != null) {
     marker.setAnimation(null);
   } else {
-  marker.setAnimation(google.maps.Animation.BOUNCE);
+    marker.setAnimation(google.maps.Animation.BOUNCE);
   }
   setTimeout( function() {
     marker.setAnimation(null);
@@ -151,7 +152,8 @@ function addMarker(place) {
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 34.1706, lng: -118.8376},
-    zoom: 13
+    zoom: 13,
+    disableDefaultUI: true
   });
   infowindow = new google.maps.InfoWindow({
     content: "Filler"
