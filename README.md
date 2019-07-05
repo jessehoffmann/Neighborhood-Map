@@ -9,7 +9,6 @@ https://www.google.com/chrome/b/
 
 ## Deployment
 The site is published here:
-https://jessehoffmann.github.io/Neighborhood_Map/neighborhood_map.html
 
 To run the program open the "neighborhood_map.html" file in your web browser.
 
